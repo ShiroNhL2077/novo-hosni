@@ -35,6 +35,7 @@ export default function ProductScreen() {
       dispatch({type : 'FETCH_REQUEST'});
       try {
         const result = await axios.get(`http://127.0.0.1:5000/api/products/slug/${slug}`);
+        console.log(result)
         dispatch({type : 'FETCH_SUCCESS', payload:result.data})
       } catch (error) {
         dispatch({type : 'FETCH_FAIL', payload : getError(error)});

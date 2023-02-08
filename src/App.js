@@ -10,6 +10,7 @@ import ProductScreen from "./screens/productScreen";
 import { useContext } from "react";
 import { Store } from "./Store";
 import CartScreen from "./screens/CartScreen";
+import SignInScreen from "./screens/SignInScreen";
 function App() {
   const { state } = useContext(Store);
   const { cart } = state;
@@ -36,6 +37,8 @@ function App() {
 <Route exact path="/product/:slug" element={<ProductScreen />}></Route>
 <Route exact path="/" element={<HomeScreen />}></Route>
 <Route exact path="/cart" element={<CartScreen />}></Route>
+<Route exact path="/signin" element={<SignInScreen />}></Route>
+
 </Routes>
 
    </main>
