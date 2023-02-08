@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
-
+import data from "./data";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import HomeScreen from "./screens/homeScreen";
+import ProductScreen from "./screens/productScreen";
+import { useContext } from "react";
+import { Store } from "./Store";
+import CartScreen from "./screens/CartScreen";
 function App() {
+  const { state } = useContext(Store);
+  const { cart } = state;
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <header>
+    <Link to="/">Novobar</Link>
+    <nav>
+      <Link to="/cart">
+        Cart 
+        {
+          cart.cartItems.length > 0 && (
+            <span>
+              {cart.cartItems.reduce((a,c)=>a+c.quantity,0)}
+            </span>
+          )
+        }
+      </Link>
+    </nav>
+   </header>
+   <main>
+<Routes>
+<Route exact path="/product/:slug" element={<ProductScreen />}></Route>
+<Route exact path="/" element={<HomeScreen />}></Route>
+<Route exact path="/cart" element={<CartScreen />}></Route>
+</Routes>
+
+   </main>
     </div>
+    </Router>
   );
 }
 
