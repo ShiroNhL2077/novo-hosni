@@ -1,4 +1,3 @@
-import data from "./data";
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,9 +10,16 @@ import { useContext } from "react";
 import { Store } from "./Store";
 import CartScreen from "./screens/CartScreen";
 import SignInScreen from "./screens/SignInScreen";
+import ShippingAdresseScreen from "./screens/ShippingAdresseScreen";
+import SignUpScreen from "./screens/SignUpScreen";
 function App() {
-  const { state } = useContext(Store);
-  const { cart } = state;
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const {  cart, userInfo } = state;
+  const signoutHandler = () => {
+    ctxDispatch({type :'USER_SINGOUT'});
+    localStorage.removeItem('userInfo');
+    window.location.href = '/signin';
+  }
   return (
     <Router>
     <div className="App">
@@ -30,6 +36,19 @@ function App() {
           )
         }
       </Link>
+     
+      {userInfo  ? (
+       <div>
+         <h3>{userInfo.name}</h3>
+         <ul>
+         <li ><Link to="/profile">user profile</Link></li>
+         <li ><Link to="/orderHistory">order history</Link></li>
+         <li ><Link to="#signout" onClick={signoutHandler}>Logout</Link></li>
+         </ul>
+       </div>
+      ) : (
+        <Link to="/signin">Sign in </Link>
+      )}
     </nav>
    </header>
    <main>
@@ -38,6 +57,8 @@ function App() {
 <Route exact path="/" element={<HomeScreen />}></Route>
 <Route exact path="/cart" element={<CartScreen />}></Route>
 <Route exact path="/signin" element={<SignInScreen />}></Route>
+<Route exact path="/signup" element={<SignUpScreen />}></Route>
+<Route exact path="/shipping" element={<ShippingAdresseScreen />}></Route>
 
 </Routes>
 
