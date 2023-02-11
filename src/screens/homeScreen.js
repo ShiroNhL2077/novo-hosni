@@ -19,6 +19,7 @@ export default function HomeScreen() {
     return {...state,products : action.payload,loading : false};
     case 'FETCH_FAIL' : 
     return {...state, loading : false , error : action.payload};
+    
     default : 
     return state;
 
