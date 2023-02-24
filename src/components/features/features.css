@@ -1,0 +1,25 @@
+.categ{
+    padding: 5%;
+    background-color: black;
+    margin-bottom: 0 !important;
+}
+
+.c-img {
+    width: 100%;
+    height: 40rem;
+    border-radius: 2rem;
+}
+
+@media (max-width: 768px) {
+    .c-img {
+    width: 100%;
+    height: 30rem;
+}
+}
+
+@media (max-width: 425px) {
+    .c-img {
+    width: 100%;
+    height: 25rem;
+}
+}

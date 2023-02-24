@@ -1,0 +1,53 @@
+.container {
+    overflow: hidden;
+}
+
+/*changed animation style*/
+
+.container .slider {
+    animation: slidein 15s alternate infinite;
+    white-space: nowrap;
+}
+.container .slider .logos {
+    width: 100%;
+    display: inline-block;
+    margin: 0px 0;
+}
+.container .slider .logos .logo {
+    width: calc(100% / 5);
+    animation: fade-in 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+}
+
+@keyframes slidein {
+    from {
+        transform: translate3d(0, 0, 0);
+   }
+    to {
+        transform: translate3d(-100%, 0, 0);
+   }
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+   }
+    100% {
+        opacity: 1;
+   }
+}
+
+@media (max-width: 768px) {
+    .logo {
+    height: 6rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo {
+    height: 13rem;
+    }
+}
+
+.logo {
+    object-fit: contain;
+    box-sizing: border-box;
+}

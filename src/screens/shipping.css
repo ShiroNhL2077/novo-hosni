@@ -1,0 +1,19 @@
+@media (max-width: 1200px) {
+  .form-container {
+    margin: 7rem 4rem 0;
+    padding: 2rem 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .form-container {
+    padding: 10rem 20rem;
+  }
+}
+
+.form-container {
+    border-radius: 2rem;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}

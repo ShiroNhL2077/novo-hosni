@@ -5,8 +5,12 @@ import logger from 'use-reducer-logger'
 import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import Message from '../components/Message';
-import Loading from '../components/Loading';
+import Loading from '../components/loading/Loading';
 import { getError } from '../utils/utils';
+import Banner from '../components/banner/banner'
+import Awards from '../components/awards/Awards'
+import Categories from '../components/categories/categories'
+import Footer from '../components/footer/footer';
 
 export default function HomeScreen() {
 
@@ -51,15 +55,33 @@ export default function HomeScreen() {
       <Helmet>
         <title>Novabar</title>
       </Helmet>
-        <h1>    Featured products </h1>
-<div className="products">
-{
-  loading? (<Loading>Loading ...</Loading>) : error? (<Message>{error}</Message>) : 
-  products && products.map(product => (
+   
+
+
+{  loading? (<Loading></Loading>) : error? (<Message>{error}</Message>) : 
+<>
+<Banner />
+<Categories />
+<main className="py-5">
+  <div className="container text-center">
+    <h2 className="text-light mb-5"><span className='text-info'>{products && products.length}</span> FLAVORS AVAILABLE</h2>
+    <div className="-container row row-cols-lg-3 px-5 g-5 justify-content-center row-cols-md-2 row-cols-1">
+      
+  
+{products && products.map(product => (
     <Product product={product} key={product.slug}></Product>
   ))
-}    
+}  
 </div>
-    </div>
+</div>
+</main>
+<Awards />
+{/* Features */}
+<Footer />
+</>
+}
+</div>
   )
 }
+
+

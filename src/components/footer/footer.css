@@ -1,0 +1,79 @@
+.bg-blackich {
+    background-color: rgb(12, 12, 12);
+}
+
+.media, .links, .desc {
+    padding: 2rem;
+}
+
+.links h6 {
+    font-size: 1.4rem;
+}
+
+.links ul {
+    padding-left: 0;
+}
+
+.links ul li {
+    opacity: 0.6;
+    font-weight: 300;
+}
+
+.desc-link {
+    color: #0f0;
+    text-decoration: none;
+}
+
+.desc ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.desc ul li::before {
+    content: "\2022";
+    color: #fff;
+    margin-right: 0.3rem;
+    font-size: 0.5rem;
+}
+
+.cert-img {
+    height: 6rem;
+}
+
+.round-t {
+    border-radius: 2rem 2rem 0 0;
+}
+
+.round-b {
+    border-radius: 0 0 2rem 2rem;
+}
+
+.social-img img:hover {
+    cursor: pointer;
+}
+
+/* .f-links div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+@media (min-width: 768px) {
+    .f-links h6 {
+        font-size: 1rem;
+    }
+
+    .f-links li {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .f-links h6 {
+        font-size: 0.9rem;
+    }
+
+    .f-links li {
+        font-size: 0.7rem;
+    }
+}

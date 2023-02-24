@@ -1,12 +1,27 @@
 import axios from "axios";
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Store } from "../Store";
 import { getError } from "../utils/utils";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import {loadStripe} from '@stripe/stripe-js';
+import {
+  CardElement,
+  Elements,
+  useStripe,
+  useElements,
+} from '@stripe/react-stripe-js';
+import StripeCheckout from "../components/StripeCheckout";
+import Loading from "../components/loading/Loading";
 
-function reducer(state, action) {
+
+
+const stripePromise = loadStripe("pk_test_51MaJv2GDnyWn5J3SkFk3LcQPqqWyBRimHUu69HpgZh6UCRK1z5dx8NUkVSFudKW4l8P545GOLmMhVV1w5sGt3ivR00yVmwVaXd");
+
+
+
+  function reducer(state, action) {
   switch (action.type) {
     case "FETCH_REQUEST":
       return { ...state, loading: true, error: "" };
@@ -22,7 +37,6 @@ function reducer(state, action) {
       return { ...state, loadingPay: false };
     case "PAY_RESET":
       return { ...state, loadingPay: false, successPay: false };
-
     case "DELIVER_REQUEST":
       return { ...state, loadingDeliver: true };
     case "DELIVER_SUCCESS":
@@ -47,7 +61,7 @@ export default function OrderScreen() {
   const params = useParams();
   const { id: orderId } = params;
   const navigate = useNavigate();
-
+  const [payMeth,setPayMeth] = useState(localStorage.getItem('paymentMethod'))
   const [
     {
       loading,
@@ -67,6 +81,10 @@ export default function OrderScreen() {
     loadingPay: false,
   });
     const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
+
+
+
+
 function createOrder(data,actions){
     return actions.order
     .create({
@@ -103,6 +121,8 @@ function onApprove(data, actions){
 function onError(err) {
     alert('err')
 }
+
+
   useEffect(() => {
     const fetchOrder = async () => {
         try {
@@ -145,62 +165,93 @@ function onError(err) {
 
   return loading ?
    <div>...loading</div> : error ?
-   <div>{error}</div> :<div>
+   <div>{error}</div> :<div className="pt-5">
      <Helmet>
     <title>Order {orderId} </title>
    </Helmet>
-   <div>
-    <strong>Name : </strong> <span>{order.shippingAddresse.fullName}</span>
-    <strong>Addresse : </strong> <span>{order.shippingAddresse.address}</span>
-     <span>{order.shippingAddresse.city},{order.shippingAddresse.postalCode},{order.shippingAddresse.country} </span>
-   </div>
-   <div>
-   {order.isDelivered ? (
-    <span>Delivred at {order.deliveredAt}</span>
-   ) : (
-    <div>NOT DELIVRED</div>
-   )}
-   </div>
-   <div>
-   {order.isPaid ? (
-    <span>Paid at {order.paidAt}</span>
-   ) : (
-    <div>NOT PAID</div>
-   )}
-   </div>
-    <div>
-        {order.orderItems.map((item,i) => {
+ 
+    <div className="text-light row m-5 ">
+        {/* {order.orderItems.map((item,i) => (
             <div key={item._id}>
-                <img src={item.image} />
+                <img src={item.image} alt="order_img" />
                 <Link to={`/product/${item.slug}`}>{item.name}</Link>
             <span>{item.quantity}</span>
             <span>{item.price} $</span>
 
             </div>
-        })}
-           <div>Order Summary 
-        <div><p>Products : {order.itemsPrice.toFixed(2)}</p>
-        <p>Shipping : {order.shippingPrice.toFixed(2)}</p>
-        <p>Tax : {order.taxPrice.toFixed(2)} </p>
-        <p>TOTAL : {order.totalPrice.toFixed(2)} </p>
+        ))} */}
+           <div className="text-light col-md-4 col-lg-4 col-sm-12">
+          <h1>Order Summary</h1>
+          <div className="text-light">
+    <strong>Name : </strong> <span>{order.shippingAddresse.fullName}</span>
+    <br></br>
+    <strong>Addresse : </strong> <span>{order.shippingAddresse.address}</span>
+    <br>
+    </br>
+     <span>{order.shippingAddresse.city},
+     <br></br>
+     {order.shippingAddresse.postalCode},
+     <br></br>,
+     {order.shippingAddresse.country} </span>
+   </div>
+   <div className="text-light my-2">
+   {order.isDelivered ? (
+    <span>Delivred at {order.deliveredAt}</span>
+   ) : (
+    <div className="text-danger">NOT DELIVRED</div>
+   )}
+   </div>
+   <div className="text-light my-2">
+   {order.isPaid ? (
+    <span>Paid at {order.paidAt}</span>
+   ) : (
+    <div className="text-danger">NOT PAID</div>
+   )}
+   </div> 
+        <div className="text-light">
+     
+          <p>Products price:    <span className="text-info"> €</span> {order.itemsPrice.toFixed(2)} 
+       </p>
+     
+        <p className="text-light">Shipping : 
+        <span className="text-info"> € </span> {order.shippingPrice.toFixed(2)}
+        </p>
+      
+        
+        <p>Tax : <span className="text-info"> €</span> {order.taxPrice.toFixed(2)}
+       
+         </p>
+         
+        <p>TOTAL : <span className="text-info"> €</span> {order.totalPrice.toFixed(2)}
+         </p>
         </div>
         </div>
-        <div className="paypal" >
+        <div className="paypal text-light col-lg-6 col-md-6 mt-5 pt-5" >
             {!order.isPaid && (
                 <div>
                 {isPending ? 
-                (<span>...Loading</span>) :  (
-                <PayPalButtons createOrder={createOrder} 
+                (<Loading></Loading>) :
+                payMeth === "paypal" ?
+                
+                (
+                <PayPalButtons 
+                createOrder={createOrder} 
                 onApprove={onApprove}
                 onError={onError}
                 >
 
                 </PayPalButtons>
-               )}
-               {loadingPay && <div>Loading pay ...</div>}
+               ) : 
+               (<div className="container">
+               <StripeCheckout />
+               
+               </div>)
+               }
+               {loadingPay && <Loading />}
                 </div>
             )}
         </div>
+  
     </div>
    </div>
 }

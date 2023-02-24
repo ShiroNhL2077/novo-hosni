@@ -1,0 +1,82 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+* {
+	box-sizing: border-box;
+	outline: none;
+    border: none;
+}
+.album{
+    background: linear-gradient(black, #1e1e20);
+    padding: 5%;
+}
+
+
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+h3{
+  box-shadow: inset 0 0 0 0 #54b3d6;
+  color: #c054d6;
+  padding: 0 .25rem;
+  margin: 0 -.25rem;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+
+h3:hover {
+  color: #fff;
+  box-shadow: inset 200px 0 0 0 #8c098a;;
+  border-radius: 10px;
+}
+
+/* Presentational styles */
+h3 {
+  color: #54b3d6;
+  font-family: 'Poppins', sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.categ{
+  opacity: 0.5;
+}
+.categ:hover{
+  opacity: 0.9;
+  transition-duration: 1s;
+}
+
+.round-t {
+    border-radius: 2rem 2rem 0 0;
+}
+
+.round-b {
+    border-radius: 0 0 2rem 2rem;
+}
+
+.card-container:nth-child(odd) {
+  margin-right: 1rem;
+}

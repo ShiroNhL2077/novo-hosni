@@ -45,24 +45,70 @@ export default function SignUpScreen() {
         <Helmet>
             <title>Sign Up</title>
         </Helmet>
-        <form onSubmit={submitHandler}>
-        <label>Name</label>
-            <input type="text" required onChange={(e)=>setName(e.target.value)}/>
-            <br></br>
-            <label>Email</label>
-            <input type="email" required onChange={(e)=>setEmail(e.target.value)}/>
-            <br></br>
-            <label>Password</label>
-            <input type="password" required onChange={(e)=>setPassword(e.target.value)} />
-            <br></br>
-            <label>Confirm Password</label>
-            <input type="password" required onChange={(e)=>setConfirmPassword(e.target.value)} />
-            <br></br>
-            <button type="submit" >Sign Up</button>
-            <br></br>
-            <label>Already have an account ?</label>
+        <main className="form-container">
+      <form className="form text-light" onSubmit={submitHandler}>
+        <div className="row">
+        
+          <div class="mb-3 col-6">
+            <label for="exampleInputEmail1" class="form-label">
+               Username
+            </label>
+            <input
+              type="text" required onChange={(e)=>setName(e.target.value)}
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">
+            Email address
+          </label>
+          <input
+            type="email" required onChange={(e)=>setEmail(e.target.value)}
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div className="row">
+          <div class="mb-3 col-6">
+            <label for="exampleInputPassword1" class="form-label">
+               password
+            </label>
+            <input
+             type="password" required onChange={(e)=>setPassword(e.target.value)}
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3 col-6">
+            <label for="exampleInputPassword1" class="form-label">
+              Re-enter password
+            </label>
+            <input
+             type="password" required onChange={(e)=>setConfirmPassword(e.target.value)}
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+        </div>
+      
+        <div className="sign-in-btn-container">
+          <button type="submit" class="sign-in-btn">
+            <span>SIGN UP</span>
+          </button>
+        </div>
+        <div className="mt-3 d-flex justify-content-center">
+          <span className="text-light">
+            Already have an account ?{" "}
             <Link to={`/signin?redirect=${redirect}`}>Sign in</Link>
-        </form>
+
+          </span>
+        </div>
+      </form>
+    </main>
     </div>
   )
 }

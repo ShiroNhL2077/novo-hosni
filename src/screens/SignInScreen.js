@@ -2,7 +2,10 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import Steps from '../components/steps/Steps';
 import { Store } from '../Store';
+import './signIn.css'
+
 
 export default function SignInScreen() {
     const navigate = useNavigate();
@@ -38,18 +41,48 @@ export default function SignInScreen() {
         <Helmet>
             <title>Sign In</title>
         </Helmet>
-        <form onSubmit={submitHandler}>
-            <label>Email</label>
-            <input type="email" required onChange={(e)=>setEmail(e.target.value)}/>
-            <br></br>
-            <label>Password</label>
-            <input type="password" required onChange={(e)=>setPassword(e.target.value)} />
-            <br></br>
-            <button type="submit" >Sign In</button>
-            <br></br>
-            <label>New costumer ?</label>
-            <Link to={`/signup?redirect=${redirect}`}>Create account</Link>
-        </form>
+        
+        <main className="container mt-5">
+        <Steps step1 ></Steps>
+      <form className="form-container text-light " onSubmit={submitHandler}>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">
+            Email address
+          </label>
+          <input
+            type="email" required onChange={(e)=>setEmail(e.target.value)}
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">
+            Password
+          </label>
+          <input
+            type="password" required onChange={(e)=>setPassword(e.target.value)}
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+    
+        <div className="sign-in-btn-container">
+          <button type="submit" class="sign-in-btn ">
+          SIGN IN
+          </button>
+        </div>
+      </form>
+      <div className="divider">
+        <div></div>
+      </div>
+      <div className="sign-up-btn-container">
+        <span className="mb-4 text-light">
+        New costumer ?{" "}
+          <Link to={`/signup?redirect=${redirect}`}>Create account</Link>
+        </span>
+      </div>
+    </main>
     </div>
   )
 }

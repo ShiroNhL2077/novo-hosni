@@ -1,0 +1,41 @@
+.pay{
+box-sizing: border-box;
+width: 20% !important;
+background: #FFFDC8;
+border: 5px solid #939393;
+border-radius: 40px;
+}
+.pay:hover{
+ cursor: pointer;   
+}
+.pay img{
+    position: relative !important;
+    left: 25%;
+}
+.payChecked img{
+    position: relative !important;
+    left: 25%;
+}
+.payText{
+font-family: 'Helvetica';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 46px;
+text-align: center;
+color: #FFFFFF;
+}
+.btn-continue{
+    background: #939393 !important;
+    border-radius: 28px;
+}
+.btn-continue.active{
+    background: #FFFDC8 !important;
+}
+
+.payChecked{
+    background: #FFFDC8 !important;
+width: 20% !important;
+border: 5px solid #eefe00;
+border-radius: 40px;
+}

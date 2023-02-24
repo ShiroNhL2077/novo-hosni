@@ -1,0 +1,28 @@
+main {
+    background-color: #111;
+}
+
+.butn {
+    border-radius: 0.5rem;
+    padding: 2% 4%;
+}
+
+@media (max-width: 768px) {
+    .buy-btn {
+        width: 100%;
+    }
+
+    .quant {
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .buy-btn {
+        width: 50%;
+    }
+
+    .quant {
+        width: 25%;
+    }
+}

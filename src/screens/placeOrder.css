@@ -1,0 +1,10 @@
+.orderItem{
+    width: 200px !important;
+    height: 155px !important;
+    background: #FFFDC8 !important;
+    box-shadow: 4px 5px 5px #8f8f8e;
+    border-radius: 41px;
+    padding: 2% 2% 10% 5% !important;
+   font-family: 'Helvetica'!important;
+   font-size: 12px !important;
+}

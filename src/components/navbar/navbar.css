@@ -1,0 +1,11 @@
+.history{
+    filter: invert(1) !important;
+}
+.history:hover{
+width: 25px !important;
+}
+.top-nav{
+    position: fixed !important;
+    width: 100% !important;
+  z-index: 50000;
+}
