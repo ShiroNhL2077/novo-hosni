@@ -53,35 +53,37 @@ export default function HomeScreen() {
   return (
     <div>
       <Helmet>
-        <title>Novabar</title>
+        <title>vapyvape</title>
       </Helmet>
-   
 
-
-{  loading? (<Loading></Loading>) : error? (<Message>{error}</Message>) : 
-<>
-<Banner />
-<Categories />
-<main className="py-5">
-  <div className="container text-center">
-    <h2 className="text-light mb-5"><span className='text-info'>{products && products.length}</span> FLAVORS AVAILABLE</h2>
-    <div className="-container row row-cols-lg-3 px-5 g-5 justify-content-center row-cols-md-2 row-cols-1">
-      
-  
-{products && products.map(product => (
-    <Product product={product} key={product.slug}></Product>
-  ))
-}  
-</div>
-</div>
-</main>
-<Awards />
-{/* Features */}
-<Footer />
-</>
-}
-</div>
-  )
+      {loading ? (
+        <Loading></Loading>
+      ) : error ? (
+        <Message>{error}</Message>
+      ) : (
+        <>
+          <Banner />
+          <Categories />
+          <main className="py-5">
+            <div className="container text-center">
+              <h2 className="text-light mb-5">
+                <span className="text-info">{products && products.length}</span>{" "}
+                FLAVORS AVAILABLE
+              </h2>
+              <div className="-container row row-cols-lg-3 px-5 g-5 justify-content-center row-cols-md-2 row-cols-1">
+                {products &&
+                  products.map((product) => (
+                    <Product product={product} key={product.slug}></Product>
+                  ))}
+              </div>
+            </div>
+          </main>
+          {/* Features */}
+          <Footer />
+        </>
+      )}
+    </div>
+  );
 }
 
 

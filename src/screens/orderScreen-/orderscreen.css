@@ -1,0 +1,309 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.text-black {
+  color: #000;
+}
+
+.bg-orange {
+  background-color: #ff8965;
+}
+
+.header {
+  color: #ff7155;
+  text-transform: uppercase;
+}
+
+.sub-header {
+  color: #ff7155;
+}
+
+.info div span {
+  line-height: 2rem;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.product:nth-child(even) {
+  -webkit-box-shadow: -14px 14px 22px -6px rgba(230, 230, 230, 1);
+  -moz-box-shadow: -14px 14px 22px -6px rgba(230, 230, 230, 1);
+  box-shadow: -14px 14px 22px -6px rgba(230, 230, 230, 1);
+}
+
+.product:nth-child(odd) {
+  -webkit-box-shadow: 14px 14px 22px -6px rgba(230, 230, 230, 1);
+  -moz-box-shadow: 14px 14px 22px -6px rgba(230, 230, 230, 1);
+  box-shadow: 14px 14px 22px -6px rgba(230, 230, 230, 1);
+}
+
+.products {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categ {
+  color: black;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.ending {
+  height: 3rem;
+}
+
+@media (max-width: 425px) {
+  .ship-fee {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 5rem;
+  }
+
+  .ship-fee span:first-child {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product:nth-child(even) {
+    margin-left: auto;
+  }
+
+  .products {
+    padding: 0 1.5rem;
+  }
+
+  .p-img {
+    position: absolute;
+    top: -0.85rem;
+  }
+
+  .info div {
+    font-size: 0.9rem;
+  }
+
+  .details,
+  .total-container,
+  .check-btn,
+  .ship-fee,
+  .ending {
+    font-size: 0.75rem;
+  }
+
+  .ending {
+    padding: 0 1.5rem;
+    line-height: 1.2rem;
+    height: 6rem;
+  }
+
+  .p-img-container {
+    position: relative;
+    margin-right: 1rem;
+  }
+
+  .product {
+    background-color: #ff8965;
+    position: relative;
+    width: 90%;
+    min-height: 8rem;
+  }
+
+  .quant {
+    border: #000 2px solid;
+    padding: 0.2rem;
+    width: 70%;
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    width: 30%;
+  }
+
+  .quant input {
+    width: 2rem;
+    height: 1rem;
+  }
+
+  .check-btn {
+    color: #fff;
+  }
+
+  .check-btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .check-btn {
+    width: 40%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .p-img {
+    position: absolute;
+    top: -0.85rem;
+  }
+
+  .details {
+    font-size: smaller;
+  }
+
+  .p-img-container {
+    position: relative;
+    margin-right: 1rem;
+  }
+
+  .product {
+    background-color: #ff8965;
+    position: relative;
+    width: 45%;
+    min-height: 8rem;
+  }
+
+  .quant {
+    border: #000 2px solid;
+    padding: 0.2rem;
+    width: 70%;
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    width: 30%;
+  }
+
+  .quant input {
+    width: 2rem;
+    height: 1rem;
+  }
+
+  .check-btn {
+    color: #fff;
+  }
+
+  .check-btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .check-btn {
+    width: 35%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .p-img {
+    position: absolute;
+    top: -0.85rem;
+  }
+
+  .p-img-container {
+    position: relative;
+    margin-right: 1rem;
+  }
+
+  .product {
+    background-color: #ff8965;
+    position: relative;
+    width: 45%;
+    min-height: 8rem;
+  }
+
+  .quant {
+    border: #000 2px solid;
+    padding: 0.5rem;
+    width: 60%;
+  }
+
+  .quant input {
+    width: 1.7rem;
+    margin-left: 1rem;
+    height: 1rem;
+  }
+
+  .check-btn {
+    color: #fff;
+  }
+
+  .check-btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .check-btn {
+    width: 30%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .p-img {
+    position: absolute;
+    top: -1.2rem;
+  }
+
+  .p-img-container {
+    position: relative;
+  }
+
+  .product {
+    background-color: #ff8965;
+    position: relative;
+    width: 45%;
+    min-height: 10rem;
+  }
+
+  .categ {
+    color: black;
+    opacity: 1;
+    font-weight: 500;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .quant {
+    border: #000 2px solid;
+    padding: 1rem;
+    width: 55%;
+  }
+
+  .quant input {
+    width: 1.7rem;
+    margin-left: 1rem;
+    height: 1rem;
+  }
+
+  .check-btn {
+    color: #fff;
+  }
+
+  .check-btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .check-btn {
+    width: 25%;
+  }
+}

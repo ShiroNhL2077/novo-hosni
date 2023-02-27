@@ -52,11 +52,21 @@
     cursor: pointer;
 }
 
+.shop-now {
+    background-image: url('../../assets/footer-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center; */
+    height: 50vh;
+    backdrop-filter:blur(100px) !important;
+}
+
 /* .f-links div {
     display: flex;
     flex-direction: column;
     align-items: center;
 } */
+
 
 @media (min-width: 768px) {
     .f-links h6 {
@@ -76,4 +86,11 @@
     .f-links li {
         font-size: 0.7rem;
     }
+}
+
+
+
+.arrow:hover {
+    padding-left: 2rem;
+    transition: all ease-out 1s;
 }

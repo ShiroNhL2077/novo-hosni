@@ -4,126 +4,27 @@ import './footer.css'
 export default function Footer() {
   return (
     <footer>
-      <div className="bg-blackich round-t">
-        <div className="container">
-          <div
-            className="py-5 px-5"
-            id="contacts"
-          >
-           
-            <div className="col d-flex justify-content-center">
-              <div className="text-light d-flex flex-column justify-content-between media-item">
-                <h6 className="">FOLLOW US</h6>
-                <span className="opacity-75 fw-light d-block">
-                  Are you social, releasing new products, or holding an event?
-                  Follow us to find out more.
-                </span>
-                <div className="social-img d-flex justify-content-between w-100">
-                  <img src="./imgs/facebook.png" className="img-fluid" alt="" />
-                  <img
-                    src="./imgs/instagram.png"
-                    className="img-fluid"
-                    alt=""
-                  />
-                  <img src="./imgs/youtube.png" className="img-fluid" alt="" />
-                  <img src="./imgs/twitter.png" className="img-fluid" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-blackich">
-        <div class="container rounded-5 bg-dark py-5">
-          <h1 class="text-center text-light mb-5">OUR CERTIFICATES</h1>
-          <div class="container w-50">
-            <div class="row row-cols-lg-3 row-cols-sm-1 row-cols-md-2 g-5">
-              <div class="col">
-                <img
-                  src="imgs-footer/cert-1.png"
-                  class="rounded-3 w-100 cert-img"
-                  alt=""
+      <div className="shop-now w-100 text-center text-light p-5">
+        <div className="d-flex flex-column justify-content-between h-100">
+          <p className="display-1">B 600</p>
+          <p className='text-uppercase'>
+            Shop Now{" "}
+            <span className='arrow'>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
                 />
-              </div>
-              <div class="col">
-                <img
-                  src="imgs-footer/cert-2.png"
-                  class="rounded-3 w-100 cert-img"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="imgs-footer/cert-3.png"
-                  class="rounded-3 w-100 cert-img"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="imgs-footer/cert-4.png"
-                  class="rounded-3 w-100 cert-img"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="imgs-footer/cert-5.png"
-                  class="rounded-3 w-100 cert-img"
-                  alt=""
-                />
-              </div>
-              <div class="col">
-                <img
-                  src="imgs-footer/cert-6.png"
-                  class="rounded-3 w-100 cert-img"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-blackich container-fluid">
-        <div class="links px-5 container">
-          <div class="row f-links row-cols-lg-4 row-cols-sm-2 row-cols-1 g-5 text-light">
-            <div class="col">
-              <h6>PRODUCTS</h6>
-              <ul class="ms-3">
-                <li>B 600</li>
-              </ul>
-            </div>
-            <div class="col">
-              <h6>COMPLIANCE</h6>
-              <ul class="ms-3">
-                <li>POWER SHOP</li>
-                <li>Distributor</li>
-                <li>NEWS&Events</li>
-                <li>BLOG</li>
-                <li>STORE LOCATOR</li>
-              </ul>
-            </div>
-            <div class="col">
-              <h6>SUPPORT</h6>
-              <ul class="ms-3">
-                <li>WARRANTY</li>
-                <li>CONTACT US</li>
-                <li>MANUALS&FIRMWARES</li>
-                <li>PRODUCTS VERIFICATION</li>
-                <li>FAQ</li>
-              </ul>
-            </div>
-            <div class="col">
-              <h6>CONTACT US</h6>
-              <ul class="ms-3">
-                <li>smo@smth.smth</li>
-                <li>support@smo.smth</li>
-                <li class="opacity-100">Anti-counterfeiting Contact :</li>
-                <li>+00 00000000</li>
-                <li>novo-bar.com</li>
-              </ul>
-            </div>
-          </div>
+              </svg>
+            </span>
+          </p>
         </div>
       </div>
       <div class="bg-blackich round-b mb-5">

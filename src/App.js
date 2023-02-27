@@ -23,35 +23,55 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/navbar/navbar";
 import './App.css'
 import Delivrey from "./screens/delivrey/Delivrey";
+import Ordersum from "./screens/orderScreen-/Ordersum";
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {  cart, userInfo } = state;
   return (
     <Router>
-    <div className="App">
-  
-    <Navbar />
-    <main style={{paddingTop : '3%'}}>
-<Routes>
-<Route exact path="/product/:slug" element={<ProductScreen />}></Route>
-<Route exact path="/" element={<HomeScreen />}></Route>
-<Route exact path="/cart" element={<CartScreen />}></Route>
-<Route exact path="/signin" element={<SignInScreen />}></Route>
-<Route exact path="/signup" element={<SignUpScreen />}></Route>
-<Route exact path="/shipping" element={<ShippingAdresseScreen />}></Route>
-<Route exact path="/payment" element={<PaymentMethodScreen />}></Route>
-<Route exact path="/placeOrder" element={<PlaceOrderScreen />}></Route>
-<Route path="/order/:id" element={<OrderScreen />}></Route>
-<Route path="/completion" element={<Completion />}></Route>
-<Route path="/orderhistory" 
-  element={<ProtectedRoute> 
-  <OrderHistoryScreen />
-   </ProtectedRoute>}></Route>
-   <Route exact path="/delivrey" element={<Delivrey />}></Route>
-</Routes>
-
-   </main>
-    </div>
+      <div className="App">
+        <Navbar />
+        <main style={{ paddingTop: "3%" }}>
+          <Routes>
+            <Route
+              exact
+              path="/product/:slug"
+              element={<ProductScreen />}
+            ></Route>
+            <Route exact path="/" element={<HomeScreen />}></Route>
+            <Route exact path="/cart" element={<CartScreen />}></Route>
+            <Route exact path="/signin" element={<SignInScreen />}></Route>
+            <Route exact path="/signup" element={<SignUpScreen />}></Route>
+            <Route
+              exact
+              path="/shipping"
+              element={<ShippingAdresseScreen />}
+            ></Route>
+            <Route
+              exact
+              path="/payment"
+              element={<PaymentMethodScreen />}
+            ></Route>
+            <Route
+              exact
+              path="/placeOrder"
+              element={<PlaceOrderScreen />}
+            ></Route>
+            <Route path="/order/:id" element={<OrderScreen />}></Route>
+            <Route path="/completion" element={<Completion />}></Route>
+            <Route
+              path="/orderhistory"
+              element={
+                <ProtectedRoute>
+                  <OrderHistoryScreen />
+                </ProtectedRoute>
+              }
+            ></Route>
+            <Route exact path="/delivrey" element={<Delivrey />}></Route>
+            <Route exact path="/ordersum" element={<Ordersum />}></Route>
+          </Routes>
+        </main>
+      </div>
     </Router>
   );
 }

@@ -49,7 +49,7 @@ export default function SignUpScreen() {
       <form className="form text-light" onSubmit={submitHandler}>
         <div className="row">
         
-          <div class="mb-3 col-6">
+          <div class="mb-3 col-12">
             <label for="exampleInputEmail1" class="form-label">
                Username
             </label>

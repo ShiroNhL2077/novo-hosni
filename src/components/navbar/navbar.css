@@ -9,3 +9,17 @@ width: 25px !important;
     width: 100% !important;
   z-index: 50000;
 }
+
+.navbar-nav li a {
+  color: #fff;
+  font-weight: 700;
+}
+
+.navbar-nav li a:hover,.navbar-nav li a:active {
+  color: #ffffffab;
+}
+
+.form-select {
+  padding: 0 0.5rem;
+  border: none;
+}
